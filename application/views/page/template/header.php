@@ -32,8 +32,9 @@
             </div>
             <?php if (!$this->session->userdata('username')) { ?>
                 <a class="btn btn-outline-success" href="<?= site_url('Auth') ?>">Login</a>
+                <a class="btn btn-outline-primary ms-2" href="<?= site_url('Auth/register_user') ?>">Register</a>
             <?php } else { ?>
-                <a class="btn btn-outline-success" href="<?= site_url('Dashboard') ?>">Dashboard</a>
+                <a class="btn btn-outline-success" href="<?= site_url('User') ?>">Dashboard</a>
             <?php } ?>
 
         </div>

@@ -4,7 +4,7 @@
 
      <!-- Page Heading -->
 
-     <h1 class="h3 mb-2 text-gray-800">Edit Kategori Pelayanan</h1>
+     <h1 class="h3 mb-2 text-gray-800">Tambah Kategori Pelayanan</h1>
      <?php if (validation_errors()) { ?>
          <div class="alert alert-danger" role="alert">
              <?= validation_errors(); ?>
@@ -14,29 +14,25 @@
      <!-- DataTales Example -->
      <div class="card shadow mb-4 mt-3">
          <div class="card-header py-3">
-             <h6 class="m-0 font-weight-bold text-primary">Form Edit Kategori</h6>
+             <h6 class="m-0 font-weight-bold text-primary">Form Tambah Kategori</h6>
          </div>
          <div class="p-5">
-             <?php echo form_open_multipart('dashboard/do_editPelayanan'); ?>
+             <?php echo form_open_multipart('admin/do_addPelayanan'); ?>
 
              <div class="form-group row">
                  <div class="col-sm-6 mb-3 mb-sm-0">
                      <label for="exampleFormControlTextarea1">Nama Kategori</label>
-                     <input type="hidden" value="<?= $kategori['id_kategori'] ?>" name="id_kategori" class="form-control" id="exampleFirstName" placeholder="Nama Kategori">
-                     <input type="text" value="<?= $kategori['nama_kategori'] ?>" name="nama_kategori" class="form-control" id="exampleFirstName" placeholder="Nama Kategori">
+                     <input type="text" name="nama_kategori" class="form-control" id="exampleFirstName" placeholder="Nama Kategori">
                  </div>
                  <div class="col-sm-6">
                      <label for="exampleFormControlTextarea1">Deksripsi Kategori Pelayanan</label>
-                     <textarea class="form-control" name="deskripsi_kategori" id="exampleFormControlTextarea1" rows="3"><?= $kategori['deskripsi_kategori'] ?></textarea>
+                     <textarea class="form-control" name="deskripsi_kategori" id="exampleFormControlTextarea1" rows="3"></textarea>
                  </div>
              </div>
-             <img src="<?= base_url() . '/upload_kategori/' . $kategori['icon_kategori'] ?>" width="50px" height="50px">
              <div class="form-group row">
                  <div class="col-sm-6 mb-3 mb-sm-0">
-
                      <label for="exampleFormControlFile1">Upload Icon Kategori</label>
                      <input type="file" name="icon_kategori" class="form-control-file" id="exampleFormControlFile1">
-
                  </div>
              </div>
              <input type="submit" value="Tambah Kategori Pelayanan" name="save" class="btn btn-primary btn-user">
@@ -58,7 +54,7 @@
              title: 'Success...',
              text: 'Data Berhasil ditambahkan'
          }).then(function() {
-             window.location = "<?= site_url('dashboard/listkategoripelayanan') ?>";
+             window.location = "<?= site_url('admin/list_pelayanan') ?>";
          });
      <?php } ?>
 

@@ -34,31 +34,15 @@ class Page extends CI_Controller
 
     public function do_addPos()
     {
-        $config['upload_path']          = './upload_ktp/';
-        $config['allowed_types']        = 'jpg|JPG|png|PNG|jpeg|JPEG';
-        $config['max_size']             = 5000;
-        $config['max_width']            = 10000;
-        $config['max_height']           = 10000;
 
-        $this->load->library('upload', $config);
-        if (!$this->upload->do_upload('upload_ktp')) {
-            $this->session->set_flashdata('pesanGagal', '<div class="alert alert-danger" role="alert">
-            <strong style="color:white">Data Gagal ditambahkan!</strong>
-        </div>');
+        if (!$this->session->userdata('id_user')) {
+            $this->session->set_flashdata('error', 'Anda Harus Register dan Login terlebih dahulu');
             redirect('Page/pospelayananhukum');
         } else {
 
-            $image = $this->upload->data();
-            $image = $image['file_name'];
-
             $data = array(
-                'nama' => $this->input->post('nama'),
-                'no_ktp' => $this->input->post('no_ktp'),
-                'alamat' => $this->input->post('alamat'),
-                'email' => $this->input->post('email'),
-                'no_hp' => $this->input->post('no_hp'),
+                'id_user' => $this->session->userdata('id_user'),
                 'status_konsultasi' => 0,
-                'upload_ktp' => $image,
                 'id_kategori' => $this->input->post('id_kategori'),
                 'judul' => $this->input->post('judul'),
                 'deskripsi_masalah' => $this->input->post('deskripsi_masalah'),

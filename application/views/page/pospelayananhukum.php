@@ -3,39 +3,17 @@
 <div class="container-fluid py-5" style="background-image: url('<?= base_url('assets/img/b.jpg') ?>'),linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)) ;background-blend-mode: overlay; background-size: cover;">
     <h2 class="ms-5 text-white">Pos Pelayanan Hukum</h2>
 </div>
+<?php if ($this->session->flashdata('error')) : ?>
+    <div class="alert alert-danger">
+        <?php echo $this->session->flashdata('error'); ?>
+    </div>
+<?php endif; ?>
 <div class="container mt-5">
     <div class="row">
         <?php echo form_open_multipart('Page/do_addPos'); ?>
-        <div class="form-group row">
-            <div class="col-sm-6 mb-3 mb-sm-0">
-                <label for="exampleFormControlFile1">Nama Lengkap:</label>
-                <input type="text" name="nama" class="form-control" id="exampleFirstName" placeholder="Nama Lengkap">
-            </div>
-            <div class="col-sm-6">
-                <label for="exampleFormControlFile1">No KTP:</label>
-                <input type="number" name="no_ktp" class="form-control" id="exampleLastName" placeholder="No KTP">
-            </div>
-        </div>
-        <div class="form-group row mt-4">
-            <div class="col-sm-6 mb-3 mb-sm-0">
-                <label for="exampleFormControlTextarea1" class="form-label">Alamat:</label>
-                <textarea class="form-control" name="alamat" id="exampleFormControlTextarea1" rows="3"></textarea>
-            </div>
-            <div class="col-sm-6">
-                <label for="exampleFormControlTextarea1" class="form-label">Email:</label>
-                <input type="email" name="email" class="form-control" id="exampleLastName" placeholder="Email">
-            </div>
-        </div>
-        <div class="form-group row mt-4">
-            <div class="col-sm-6 mb-3 mb-sm-0">
-                <label for="exampleFormControlTextarea1" class="form-label">NO HP:</label>
-                <input type="number" name="no_hp" class="form-control" id="exampleLastName" placeholder="No HP">
-            </div>
-            <div class="col-sm-6">
-                <label for="exampleFormControlTextarea1" class="form-label">Upload KTP:</label>
-                <input type="file" name="upload_ktp" class="form-control" id="exampleLastName" placeholder="Email">
-            </div>
-        </div>
+
+
+
         <div class="form-group row mt-4">
             <div class="col-sm-12 mb-3 mb-sm-0">
                 <label for="exampleFormControlTextarea1" class="form-label">Kategori:</label>
@@ -94,7 +72,7 @@
         Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Data Eror diedit'
+            text: 'Anda Harus Register dan Login Terlebih dahulu'
         })
     <?php } ?>
 </script>
