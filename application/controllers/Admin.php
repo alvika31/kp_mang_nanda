@@ -280,4 +280,16 @@ class Admin extends CI_Controller
         $id = $this->input->post('id_kategori'); //get data from ajax(post)
         $del = $this->Admin_model->delKategori($id);
     }
+
+    function list_konsultasi()
+    {
+        $data = [
+            'title' => 'Halaman List Konsultasi Saya',
+            'konsultasi' => $this->Admin_model->getKonsultasi()->result()
+        ];
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/list_konsultasi', $data);
+        $this->load->view('admin/footer', $data);
+    }
 }

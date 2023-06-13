@@ -41,9 +41,9 @@
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Login Admin</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Login Advokat</h1>
                                     </div>
-                                    <form class="user" method="post" action="<?= site_url('auth/do_login_admin') ?>">
+                                    <form class="user" method="post" action="<?= site_url('auth/do_login_advokat') ?>">
                                         <div class="form-group">
                                             <input type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username...">
                                         </div>

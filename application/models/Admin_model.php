@@ -66,4 +66,16 @@ class Admin_model extends CI_Model
         $this->db->where('id_kategori', $id);
         $this->db->delete('kategori_konsultasi');
     }
+
+    function getKonsultasi()
+    {
+        $this->db->select('*');
+        $this->db->from('konsultasi');
+        $this->db->join('kategori_konsultasi', 'kategori_konsultasi.id_kategori = konsultasi.id_kategori');
+        $this->db->join('user', 'user.id_user = konsultasi.id_user');
+        $this->db->join('jawab_konsultasi', 'jawab_konsultasi.id_konsultasi = konsultasi.id_konsultasi');
+        $this->db->order_by("konsultasi.id_konsultasi", "desc");
+        $query = $this->db->get();
+        return $query;
+    }
 }

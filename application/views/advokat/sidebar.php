@@ -11,7 +11,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item <?= ($title === 'Halaman Home') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= site_url('Admin') ?>">
+          <a class="nav-link" href="<?= site_url('User') ?>">
               <i class="fas fa-fw fa-tachometer-alt"></i>
               <span>Dashboard</span></a>
       </li>
@@ -30,22 +30,7 @@
       <!-- Nav Item - Utilities Collapse Menu -->
 
       <li class="nav-item <?= ($title === 'Halaman List Konsultasi Costumer') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= site_url('admin/list_advokat') ?>">
-              <i class="fas fa-solid fa-user-tie"></i>
-              <span>Advokat</span></a>
-      </li>
-      <li class="nav-item <?= ($title === 'Halaman List Konsultasi Costumer') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= site_url('admin/list_user') ?>">
-              <i class="fas fa-solid fa-user-tie"></i>
-              <span>User</span></a>
-      </li>
-      <li class="nav-item <?= ($title === 'Halaman List Konsultasi Costumer') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= site_url('admin/list_pelayanan') ?>">
-              <i class="fas fa-solid fa-user-tie"></i>
-              <span>Kategori Pelayanan</span></a>
-      </li>
-      <li class="nav-item <?= ($title === 'Halaman List Konsultasi Costumer') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= site_url('admin/list_konsultasi') ?>">
+          <a class="nav-link" href="<?= site_url('advokat/list_konsultasi') ?>">
               <i class="fas fa-solid fa-user-tie"></i>
               <span>Konsultasi</span></a>
       </li>
@@ -100,7 +85,7 @@
                   <!-- Nav Item - Messages -->
                   <li class="nav-item dropdown no-arrow">
                       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="mr-2 d-none d-lg-inline text-gray-600 small">Login Sebagai Admin</span>
+                          <span class="mr-2 d-none d-lg-inline text-gray-600 small">Login Sebagai Advokat</span>
                       </a>
                       <!-- Dropdown - User Information -->
 

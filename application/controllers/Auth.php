@@ -25,6 +25,49 @@ class Auth extends CI_Controller
         $this->load->view('auth/login_admin', $data);
     }
 
+    function login_advokat()
+    {
+        $data = [
+            'title' => 'Halaman Login'
+        ];
+        $this->load->view('auth/login_advokat', $data);
+    }
+
+    function do_login_advokat()
+    {
+        $username = $this->input->post('username'); // Ambil isi dari inputan username pada form login
+        $password = md5($this->input->post('password')); // Ambil isi dari inputan password pada form login dan encrypt dengan md5
+        $user = $this->Auth_model->get_advokat($username); // Panggil fungsi get yang ada di UserModel.php
+        if (empty($user)) { // Jika hasilnya kosong / user tidak ditemukan
+            $this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">
+       Username Tidak Ditemukan
+       </div>'); // Buat session flashdata
+            redirect('auth/login_advokat'); // Redirect ke halaman login
+        } else {
+            if ($password == $user->password) { // Jika password yang diinput sama dengan password yang didatabase
+                $session = array(
+                    'authenticated' => true,
+                    'id_advokat' => $user->id_advokat,
+                    'nama_lengkap' => $user->nama_lengkap,
+                    'username' => $user->username,
+                    'jenis_kelamin' => $user->jenis_kelamin,
+                    'foto' => $user->foto,
+                    'email' => $user->email,
+                    'no_tlp' => $user->no_tlp,
+                    'status' => "login",
+                    'is_login' => true // Buat session authenticated
+                );
+                $this->session->set_userdata($session); // Buat session sesuai $session
+                redirect('advokat'); // Redirect ke halaman welcome
+            } else {
+                $this->session->set_flashdata('error', '<div class="alert alert-danger" role="alert">
+         Harap Masukan Password Yang Benar
+         </div>'); // Buat session flashdata
+                redirect('auth/login_advokat'); // Redirect ke halaman login
+            }
+        }
+    }
+
     function do_login_admin()
     {
         $username = $this->input->post('username'); // Ambil isi dari inputan username pada form login

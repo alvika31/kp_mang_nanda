@@ -20,4 +20,11 @@ class Auth_model extends CI_Model
         $result = $this->db->get('admin')->row(); // Untuk mengeksekusi dan mengambil data hasil query
         return $result;
     }
+
+    function get_advokat($username)
+    {
+        $this->db->where('username', $username); // Untuk menambahkan Where Clause : username='$username'
+        $result = $this->db->get('advokat')->row(); // Untuk mengeksekusi dan mengambil data hasil query
+        return $result;
+    }
 }
