@@ -11,7 +11,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item <?= ($title === 'Halaman Home') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= site_url('User') ?>">
+          <a class="nav-link" href="<?= site_url('advokat') ?>">
               <i class="fas fa-fw fa-tachometer-alt"></i>
               <span>Dashboard</span></a>
       </li>

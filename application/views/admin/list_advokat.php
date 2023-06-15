@@ -23,6 +23,7 @@
                             <th>Foto</th>
                             <th>Email</th>
                             <th>No Telepon</th>
+                            <th>Spesialis</th>
                             <th width="10%">Action</th>
                         </tr>
                     </thead>
@@ -36,6 +37,7 @@
                             <th>Foto</th>
                             <th>Email</th>
                             <th>No Telepon</th>
+                            <th>Spesialis</th>
                             <th width="10%">Action</th>
                         </tr>
                     </tfoot>
@@ -52,6 +54,7 @@
                                 </td>
                                 <td><?= $advokat->email ?></td>
                                 <td><?= $advokat->no_tlp ?></td>
+                                <td><?= $advokat->nama_kategori ?></td>
                                 <td>
                                     <a href="<?= site_url('admin/edit_advokat/' . $advokat->id_advokat) ?>" class="btn btn-info"><i class="fas fa-solid fa-edit fa-sm"></i></a>
                                     <button onclick="hapus(<?php echo $advokat->id_advokat; ?>)" class="btn btn-danger"><i class="fas fa-solid fa-trash fa-sm"></i></button>

@@ -14,7 +14,7 @@
                     <p style="font-size: 50px;" class="card-text"><?= $konsultasi['deskripsi_masalah'] ?></p>
                 </div>
                 <div class="card-footer ">
-                    Ditanyakan Oleh: <?= $this->session->userdata('nama_lengkap') ?> | <span class="font-weight-bold"><?= $konsultasi['nama_kategori'] ?></span>
+                    Ditanyakan Oleh: <?= $konsultasi['nama_lengkap'] ?> | <span class="font-weight-bold"><?= $konsultasi['nama_kategori'] ?></span>
                     <?php if ($konsultasi['privasi'] == 1) { ?>
                         <span class="badge badge-success ml-2">Publik</span>
                     <?php } else { ?>

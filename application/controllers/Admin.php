@@ -38,6 +38,7 @@ class Admin extends CI_Controller
     {
         $data = [
             'title' => 'Halaman Tambah Advokat',
+            'kategori' => $this->db->get('kategori_konsultasi')->result()
         ];
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
@@ -75,6 +76,7 @@ class Admin extends CI_Controller
             $image = $image['file_name'];
 
             $data = array(
+                'id_kategori' => $this->input->post('id_kategori'),
                 'nama_lengkap' => $this->input->post('nama_lengkap'),
                 'username' => $this->input->post('username'),
                 'password' => md5($this->input->post('username')),
@@ -100,6 +102,7 @@ class Admin extends CI_Controller
         $data = [
             'title' => 'Halaman Edit User',
             'advokat' => $this->Admin_model->getIdAdvokat($id_advokat),
+            'kategori' => $this->db->get('kategori_konsultasi')->result()
         ];
 
         $this->load->view('admin/header', $data);
@@ -120,6 +123,7 @@ class Admin extends CI_Controller
         $this->load->library('upload', $config);
         if (!$this->upload->do_upload('foto')) {
             $data = [
+                'id_kategori' => $this->input->post('id_kategori'),
                 'nama_lengkap' => $this->input->post('nama_lengkap'),
                 'username' => $this->input->post('username'),
                 'jenis_kelamin' => $this->input->post('jenis_kelamin'),
@@ -133,6 +137,7 @@ class Admin extends CI_Controller
             $image = $this->upload->data();
             $image = $image['file_name'];
             $data = [
+                'id_kategori' => $this->input->post('id_kategori'),
                 'nama_lengkap' => $this->input->post('nama_lengkap'),
                 'username' => $this->input->post('username'),
                 'jenis_kelamin' => $this->input->post('jenis_kelamin'),
@@ -290,6 +295,20 @@ class Admin extends CI_Controller
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
         $this->load->view('admin/list_konsultasi', $data);
+        $this->load->view('admin/footer', $data);
+    }
+
+    function detail_konsultasi($id_konsultasi)
+    {
+        $data = [
+            'title' => 'Halaman List Konsultasi Saya',
+            'konsultasi' => $this->Admin_model->detailKonsultasi($id_konsultasi)->row_array(),
+            'jawab_konsultasi' => $this->Admin_model->jawabKonsultasi($id_konsultasi)->row_array()
+
+        ];
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/detail_konsultasi', $data);
         $this->load->view('admin/footer', $data);
     }
 }

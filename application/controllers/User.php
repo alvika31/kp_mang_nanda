@@ -39,7 +39,8 @@ class User extends CI_Controller
     {
         $data = [
             'title' => 'Halaman Detail Konsultasi Saya',
-            'konsultasi' => $this->User_model->detailKonsultasi($id_konsultasi)->row_array()
+            'konsultasi' => $this->User_model->detailKonsultasi($id_konsultasi)->row_array(),
+            'jawab_konsultasi' => $this->User_model->jawabKonsultasi($id_konsultasi)->row_array()
         ];
         $this->load->view('user/header', $data);
         $this->load->view('user/sidebar', $data);

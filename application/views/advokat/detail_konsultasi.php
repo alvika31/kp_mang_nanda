@@ -32,14 +32,11 @@
         <div class="">
             <form action="<?= site_url('advokat/do_jawab_konsultasi') ?>" method="post">
                 <input type="hidden" name="id_advokat" id="" value="<?= $this->session->userdata('id_advokat') ?>" require>
+                <input type="hidden" name="email" id="" value="<?= $konsultasi['email'] ?>">
                 <input type="hidden" name="id_konsultasi" id="" value="<?= $konsultasi['id_konsultasi'] ?>" require>
                 <label for="" class="font-weight-bold">Jawaban Pertanyaan:</label>
                 <textarea class="form-control" name="isi_jawab" id="editor" rows="3" require></textarea>
-                <label for="" class="mt-4 font-weight-bold">Tampilkan Diwebsite?</label>
-                <select name="show_jawab" id="" class="form-control" require>
-                    <option value="1">Tampilkan Diwebsite</option>
-                    <option value="0">Jangan Tampilkan</option>
-                </select>
+
                 <input type="submit" value="Kirim Jawaban" class="btn btn-primary mt-4 mb-4">
             </form>
         </div>

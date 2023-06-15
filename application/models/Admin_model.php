@@ -5,6 +5,7 @@ class Admin_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('advokat');
+        $this->db->join('kategori_konsultasi', 'kategori_konsultasi.id_kategori = advokat.id_kategori');
         $query = $this->db->get();
 
         return $query;
@@ -73,8 +74,32 @@ class Admin_model extends CI_Model
         $this->db->from('konsultasi');
         $this->db->join('kategori_konsultasi', 'kategori_konsultasi.id_kategori = konsultasi.id_kategori');
         $this->db->join('user', 'user.id_user = konsultasi.id_user');
-        $this->db->join('jawab_konsultasi', 'jawab_konsultasi.id_konsultasi = konsultasi.id_konsultasi');
+
         $this->db->order_by("konsultasi.id_konsultasi", "desc");
+        $query = $this->db->get();
+        return $query;
+    }
+
+    function detailKonsultasi($id_konsultasi)
+    {
+        $this->db->select('*');
+        $this->db->from('konsultasi');
+        $this->db->join('kategori_konsultasi', 'kategori_konsultasi.id_kategori = konsultasi.id_kategori');
+        $this->db->join('user', 'user.id_user = konsultasi.id_user');
+        $this->db->where('konsultasi.id_konsultasi', $id_konsultasi);
+        $query = $this->db->get();
+        return $query;
+    }
+    function jawabKonsultasi($id_konsultasi)
+    {
+        $this->db->select('*');
+        $this->db->from('konsultasi');
+        $this->db->join('kategori_konsultasi', 'kategori_konsultasi.id_kategori = konsultasi.id_kategori');
+        $this->db->join('user', 'user.id_user = konsultasi.id_user');
+        $this->db->join('jawab_konsultasi', 'jawab_konsultasi.id_konsultasi = konsultasi.id_konsultasi');
+        $this->db->join('advokat', 'advokat.id_advokat = jawab_konsultasi.id_advokat');
+        $this->db->where('konsultasi.id_konsultasi', $id_konsultasi);
+
         $query = $this->db->get();
         return $query;
     }

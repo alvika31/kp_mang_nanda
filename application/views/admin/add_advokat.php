@@ -53,6 +53,16 @@
                      <input type="text" name="no_tlp" class="form-control" id="exampleRepeatPassword" placeholder="No Telepon">
                  </div>
              </div>
+             <div class="form-group row">
+                 <div class="col-sm-12">
+                     <label for="">Spesialis:</label>
+                     <select name="id_kategori" id="" class="form-control">
+                         <?php foreach ($kategori as $kategori) { ?>
+                             <option value="<?= $kategori->id_kategori ?>"><?= $kategori->nama_kategori ?></option>
+                         <?php } ?>
+                     </select>
+                 </div>
+             </div>
              <input type="submit" value="Tambah Akun" name="save" class="btn btn-primary btn-user">
              <hr>
 

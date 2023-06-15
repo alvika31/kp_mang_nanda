@@ -37,7 +37,7 @@
                         foreach ($konsultasi as $konsul) { ?>
                             <tr>
                                 <td><?= $i++; ?></td>
-                                <td><a href="<?= site_url('dashboard/detail_konsul/' . $konsul->id_konsultasi) ?>"><?= $konsul->judul ?></a></td>
+                                <td><a href="<?= site_url('user/my_detail_konsultasi/' . $konsul->id_konsultasi) ?>"><?= $konsul->judul ?></a></td>
                                 <?php if ($konsul->status_konsultasi == 0) { ?>
                                     <td><span class="badge badge-danger">Belum dijawab</span></td>
                                 <?php } else { ?>

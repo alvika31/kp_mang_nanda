@@ -18,6 +18,7 @@
                             <th>No</th>
                             <th>Nama User</th>
                             <th>Judul Pertanyaan</th>
+                            <th>Kategori Pertanyaan</th>
                             <th>Status Jawab</th>
                             <th width="10%">Action</th>
                         </tr>
@@ -27,6 +28,7 @@
                             <th>No</th>
                             <th>Nama User</th>
                             <th>Judul Pertanyaan</th>
+                            <th>Kategori Pertanyaan</th>
                             <th>Status Jawab</th>
                             <th width="10%">Action</th>
                         </tr>
@@ -38,6 +40,7 @@
                                 <td><?= $i++; ?></td>
                                 <td><?= $konsul->nama_lengkap ?></td>
                                 <td><?= $konsul->judul ?></td>
+                                <td><?= $konsul->nama_kategori ?></td>
                                 <?php if ($konsul->status_konsultasi == 0) { ?>
                                     <td><span class="badge badge-danger">Belum dijawab</span></td>
                                 <?php } else { ?>
